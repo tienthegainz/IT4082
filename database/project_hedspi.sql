@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 10, 2018 at 02:20 AM
+-- Generation Time: Mar 10, 2018 at 03:32 AM
 -- Server version: 5.7.21
 -- PHP Version: 7.1.14
 
@@ -172,7 +172,7 @@ ALTER TABLE `t_exercises`
 -- AUTO_INCREMENT for table `t_programs`
 --
 ALTER TABLE `t_programs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `t_tracking`
