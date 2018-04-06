@@ -9,6 +9,7 @@
   $_SESSION['weight'] = $weight;
   $_SESSION['height'] = $height;
   $_SESSION['program_id'] = $program_id;*/
+  unset($_SESSION['id']);
   unset($_SESSION['username']);
   unset($_SESSION['password']);
   unset($_SESSION['name']);
