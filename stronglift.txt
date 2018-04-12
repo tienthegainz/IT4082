@@ -1,0 +1,14 @@
+Chương trình Stronglift:
+5 bài tập chia ra 2 ngày tập:
+  Day1: Squat, OverheadPress, Bent Over Row
+  Day2: Squat, Bench Press, Deadlift
+  Tất cả đều là 5x5
+Khởi tạo mức tạ ban đầu:
+  Day 1:Bodyweight x(0.6, 0.2, 0.7)
+  Day 2:Bodyweight x(0.6, 0.4, 0.4)
+Cách mà mình lưu trữ trong database:
+  noreps: Không quan trọng nên để bao nhiêu cũng được
+  nosets: Có 3 giá trị 5,1,0.
+          Số 5 tượng trưng cho việc bài tập đó lần trước đã hoàn thành 5x5, vì thế hôm nay mức tạ +2
+          Số 1                                           chưa hoàn thành 5x5, vì thế hôm nay mức tạ ko đổi
+          Số 0                                           chưa hoàn thành 5x5 và cả lần trước nữa, vì thế mức tạ -2
