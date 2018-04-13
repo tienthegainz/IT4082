@@ -29,6 +29,7 @@
 				echo '<br><a href="stronglift.php"><button>Bat dau luyen tap nao Ban toi</button></a>';
 			else if($_SESSION['program_id']==2)
 				echo '<br><a href="push_pull_leg.php"><button>Bat dau luyen tap nao Ban toi</button></a>';
+			echo '<br><a href="changeinfo.php">Thay doi mat khau ca nhan</a>';
 			echo '<br><a href="logout.php">Log out</a>';
 		}
 	?>

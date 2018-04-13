@@ -14,7 +14,26 @@
   $result = $conn->query($sql);
 
 	//thuc hien viec luu muc ta de hien thi ra ngoai, cong thuc theo file stronglift
-  if ($result->num_rows > 0){
+	if($result->num_rows <= 0){ //khoi tao muc ta ban dau
+		$_SESSION['check']=5;
+		$_SESSION['w1']=$_SESSION['weight']*0.6;
+		$_SESSION['s1']=5;
+		$_SESSION['w2']=$_SESSION['weight']*0.2;
+		$_SESSION['s2']=5;
+		$_SESSION['w3']=$_SESSION['weight']*0.7;
+		$_SESSION['s3']=5;
+	}
+	else if($result->num_rows == 3){ //khoi tao muc ta ban dau
+		$_SESSION['check']=3;
+		$_SESSION['check']=$row['exercise'];
+		$_SESSION['w1']=$_SESSION['weight']*0.6;
+		$_SESSION['s1']=5;
+		$_SESSION['w2']=$_SESSION['weight']*0.4;
+		$_SESSION['s2']=5;
+		$_SESSION['w3']=$_SESSION['weight']*0.4;
+		$_SESSION['s3']=5;
+	}
+	else if ($result->num_rows ==6 ){
 		$row = $result->fetch_assoc();
 		$_SESSION['check']=$row['exercise'];
 		$row = $result->fetch_assoc();
@@ -63,23 +82,6 @@
 			$_SESSION['s1']=5;
 		}
 }
-else if($result->num_rows == 0){ //khoi tao muc ta ban dau
-	$_SESSION['w1']=$_SESSION['weight']*0.6;
-	$_SESSION['s1']=5;
-	$_SESSION['w2']=$_SESSION['weight']*0.2;
-	$_SESSION['s2']=5;
-	$_SESSION['w3']=$_SESSION['weight']*0.7;
-	$_SESSION['s3']=5;
-}
-else if($result->num_rows == 3){ //khoi tao muc ta ban dau
-	$_SESSION['w1']=$_SESSION['weight']*0.6;
-	$_SESSION['s1']=5;
-	$_SESSION['w2']=$_SESSION['weight']*0.4;
-	$_SESSION['s2']=5;
-	$_SESSION['w3']=$_SESSION['weight']*0.4;
-	$_SESSION['s3']=5;
-}
-
   //in ra bang luyen tap hom nay
   if($_SESSION['check']==3)
   echo '

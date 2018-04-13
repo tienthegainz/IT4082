@@ -6,7 +6,7 @@
   if(empty($user)||empty($pass))
     header("Location:../login.php?login=empty");
   else{
-    $sql = "SELECT name,username,password,age,gender,weight,height,program_id FROM `t_users` WHERE username= ? AND password= ? ";
+    $sql = "SELECT id,name,username,password,age,gender,weight,height,program_id FROM `t_users` WHERE username= ? AND password= ? ";
     //prepared statement for login
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -24,8 +24,9 @@
           header("Location: ../login.php?login=notfound");
         }
         else {
-          mysqli_stmt_bind_result($stmt, $name,$username,$password,$age,$gender,$weight,$height,$program_id);
+          mysqli_stmt_bind_result($stmt,$id, $name,$username,$password,$age,$gender,$weight,$height,$program_id);
           mysqli_stmt_fetch($stmt);
+					$_SESSION['id'] = $id;
           $_SESSION['username'] = $username;
           $_SESSION['password'] = $password;
           $_SESSION['name'] = $name;
