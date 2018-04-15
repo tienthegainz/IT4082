@@ -25,12 +25,11 @@
 	}
 	else if($result->num_rows == 3){ //khoi tao muc ta ban dau
 		$_SESSION['check']=3;
-		$_SESSION['check']=$row['exercise'];
 		$_SESSION['w1']=$_SESSION['weight']*0.6;
 		$_SESSION['s1']=5;
 		$_SESSION['w2']=$_SESSION['weight']*0.4;
 		$_SESSION['s2']=5;
-		$_SESSION['w3']=$_SESSION['weight']*0.4;
+		$_SESSION['w3']=$_SESSION['weight']*0.7;
 		$_SESSION['s3']=5;
 	}
 	else if ($result->num_rows ==6 ){
