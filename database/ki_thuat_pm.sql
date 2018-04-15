@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 20, 2018 at 02:00 PM
+-- Generation Time: Apr 15, 2018 at 02:25 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -42,7 +42,7 @@ CREATE TABLE `t_exercises` (
 INSERT INTO `t_exercises` (`id_exercise`, `name`, `nosets`, `noreps`, `guideline`, `video`) VALUES
 (1, 'Squat', 5, 5, '', ''),
 (2, 'Overhead Press', 5, 5, '', ''),
-(3, 'Pull Up', 5, 5, '', ''),
+(3, 'Barbell Row', 5, 5, '', ''),
 (4, 'Bench Press', 5, 5, '', ''),
 (5, 'Deadlift', 5, 5, '', '');
 
@@ -105,6 +105,39 @@ CREATE TABLE `t_tracking` (
   `trainer_id` int(11) DEFAULT NULL COMMENT 'trainer who data are sent to'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `t_tracking`
+--
+
+INSERT INTO `t_tracking` (`id`, `date`, `nosets`, `noreps`, `weight`, `exercise`, `user_id`, `trainer_id`) VALUES
+(1, '2018-04-01', 5, 5, 60, '1', 1, 1),
+(2, '2018-04-01', 5, 5, 30, '2', 1, 1),
+(3, '2018-04-01', 5, 5, 20, '3', 1, 1),
+(4, '2018-04-03', 5, 5, 63, '1', 1, 1),
+(5, '2018-04-03', 5, 5, 50, '4', 1, 1),
+(6, '2018-04-03', 5, 5, 80, '5', 1, 1),
+(7, '2018-04-04', 5, 5, 75, '1', 1, 1),
+(8, '2018-04-04', 5, 5, 43, '2', 1, 1),
+(9, '2018-04-04', 5, 5, 25, '3', 1, 1),
+(10, '2018-04-06', 1, 5, 65, '1', 1, NULL),
+(11, '2018-04-06', 1, 5, 52, '4', 1, NULL),
+(12, '2018-04-06', 1, 5, 82, '5', 1, NULL),
+(13, '2018-04-06', 5, 5, 77, '1', 1, NULL),
+(14, '2018-04-06', 1, 5, 45, '2', 1, NULL),
+(15, '2018-04-06', 5, 5, 27, '3', 1, NULL),
+(16, '2018-04-13', 5, 5, 54, '1', 3, NULL),
+(17, '2018-04-13', 1, 5, 18, '2', 3, NULL),
+(18, '2018-04-13', 5, 5, 62, '3', 3, NULL),
+(19, '2018-04-15', 5, 5, 54, '1', 3, NULL),
+(20, '2018-04-15', 5, 5, 36, '4', 3, NULL),
+(21, '2018-04-15', 5, 5, 62, '5', 3, NULL),
+(22, '2018-04-15', 5, 5, 67, '1', 1, NULL),
+(23, '2018-04-15', 5, 5, 54, '4', 1, NULL),
+(24, '2018-04-15', 5, 5, 84, '5', 1, NULL),
+(25, '2018-04-15', 5, 5, 79, '1', 1, NULL),
+(26, '2018-04-15', 5, 5, 47, '2', 1, NULL),
+(27, '2018-04-15', 5, 5, 29, '3', 1, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -151,11 +184,12 @@ CREATE TABLE `t_users` (
 --
 
 INSERT INTO `t_users` (`id`, `name`, `username`, `password`, `age`, `gender`, `weight`, `height`, `trainer_id`, `program_id`) VALUES
-(1, 'Ha Tien', 'gainzallday', 't123', 20, 'Male', 70, 174, 1, 1),
-(2, 'Vu Duc', 'moon_love', 'd123', 23, 'Male', 55, 170, 2, 1),
-(3, 'Luu Xuan Son', 'sonbeo_98', 'son123', 21, 'male', 90, 180, 1, 1),
+(1, 'Ha Tien', 'gainzallday', 't123', 20, 'male', 70, 174, 1, 1),
+(2, 'Vu Duc', 'moon_love', 'd123', 23, 'male', 55, 170, 2, 1),
+(3, 'Luu Xuan Son', 'sonbeo_98', 'sontito', 21, 'male', 90, 180, 1, 1),
 (4, 'Ha Viet Tien', 'tien_gainz', '123', 16, 'male', 61, 167, 1, 1),
-(5, 'Pham Chien', 'moonpham', '123', 20, 'female', 60, 165, 2, 1);
+(5, 'Pham Chien', 'moonpham', '123', 20, 'female', 60, 165, 2, 1),
+(6, 'Lan Anh', 'lanlan1', '123', 19, 'female', 70, 164, 2, 2);
 
 --
 -- Indexes for dumped tables
@@ -220,7 +254,7 @@ ALTER TABLE `t_programs`
 -- AUTO_INCREMENT for table `t_tracking`
 --
 ALTER TABLE `t_tracking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `t_trainers`
 --
@@ -230,7 +264,7 @@ ALTER TABLE `t_trainers`
 -- AUTO_INCREMENT for table `t_users`
 --
 ALTER TABLE `t_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
