@@ -18,6 +18,14 @@
   unset($_SESSION['weight']);
   unset($_SESSION['height']);
   unset($_SESSION['program_id']);
+  unset($_SESSION['carb']);
+  unset($_SESSION['check']);
+  unset($_SESSION['w1']);
+  unset($_SESSION['s1']);
+  unset($_SESSION['w2']);
+  unset($_SESSION['s2']);
+  unset($_SESSION['w3']);
+  unset($_SESSION['s3']);
   header('Location: index.php');
 
  ?>
