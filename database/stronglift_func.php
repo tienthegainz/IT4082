@@ -69,7 +69,7 @@
         header("Location: ../index.php?record=success");
     }
   }
-  else{
+  else {
     $squat1 = $_GET['squat1'];
     $squat2 = $_GET['squat2'];
     $squat3 = $_GET['squat3'];
@@ -123,7 +123,7 @@
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
       header("Location: ../index.php?record=success");
-  }
+    }
   }
   unset($_SESSION['s1']);
   unset($_SESSION['w1']);

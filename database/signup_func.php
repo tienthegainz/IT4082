@@ -37,6 +37,6 @@
       mysqli_stmt_bind_param($stmt,"sssisiiii",$name,$user,$pass,$age,$gender,$weight,$height,$coach,$program);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
-      header("Location: ../signup.php?signup=success"); //thanh cong
+      header("Location: ../login.php"); //thanh cong
     }
   }

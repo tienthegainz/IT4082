@@ -169,7 +169,7 @@ Facebook: 		https://www.facebook.com/fh5co
 									else{
 										echo '
 											<ul class="dropdown">
-												<li><a href="changeinfo.php">Change info</a></li>
+												<li><a href="changeinfo_pass.php">Change info</a></li>
 												<li><a href="stronglift.php">Training</a></li>
 												<li><a href="track.php">Tracking chart</a></li>
 												<li><a href="logout.php">Logout</a></li>

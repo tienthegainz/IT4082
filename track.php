@@ -134,7 +134,7 @@
 						{
 							"id": "Title-1",
 							"size": 15,
-							"text": "6 days Training Track"
+							"text": "Training Track"
 						}
 					],
           "dataProvider": [
@@ -202,7 +202,7 @@
 								<li class="active has-dropdown">
 									<a >User</a>
 												<ul class="dropdown">
-													<li><a href="changeinfo.php">Change info</a></li>
+													<li><a href="changeinfo_pass.php">Change info</a></li>
 													<li><a href="stronglift.php">Training</a></li>
 													<li><a class="active" href="track.php">Tracking chart</a></li>
 												</ul>
