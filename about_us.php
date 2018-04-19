@@ -66,66 +66,6 @@ Facebook: 		https://www.facebook.com/fh5co
 	<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
 	<script type="text/javascript" src="https://www.amcharts.com/lib/3/pie.js"></script>
 
-
-	<!-- amCharts javascript code -->
-	<script type="text/javascript">
-		AmCharts.makeChart("chartdiv",
-			{
-				"type": "pie",
-				"balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
-				"titleField": "category",
-				"valueField": "column-1",
-				"allLabels": [],
-				"balloon": {},
-				"legend": {
-					"enabled": true,
-					"align": "center",
-					"markerType": "circle"
-				},
-				"titles": [],
-				"dataProvider": [
-					<?php
-					session_start();
-					if($_SESSION['gender']=="male"){
-						$_SESSION['carb']=13.397*$_SESSION['weight']+4.799*$_SESSION['height']-5.677*$_SESSION['age']+88.362;
-						// [ (13.397 x Trọng lượng kg) + (4.799 x Chiều cao cm) - (5.677 x Tuổi năm) + 88.362 ]
-					}
-					else if($_SESSION['gender']=="female"){
-						$_SESSION['carb']=9.;247*$_SESSION['weight']+3.098*$_SESSION['height']-4.33*$_SESSION['age']+447.593;
-						//[ (9.247 x Trọng lượng kg) + (3.098 x Chiều cao cm) - (4.330 x Tuổi năm) + 447.593 ]
-					}
-					echo '
-					{
-						"category": "Protein",
-						"column-1": "'.$_SESSION['carb']*0.3.'"
-					},
-					{
-						"category": "Carb",
-						"column-1": "'.$_SESSION['carb']*0.5.'"
-					},
-					{
-						"category": "Protein",
-						"column-1": "'.$_SESSION['carb']*0.2.'"
-					}
-					';
-			?>
-
-					/*{
-						"category": "Protein",
-						"column-1": "3"
-					},
-					{
-						"category": "Carb",
-						"column-1": "5"
-					},
-					{
-						"category": "Fat",
-						"column-1": "2"
-					}*/
-				]
-			}
-		);
-	</script>
 	<!-- Them vai ham linh tinh -->
 
 </head>
@@ -160,6 +100,7 @@ Facebook: 		https://www.facebook.com/fh5co
 							<li class="has-dropdown">
 								<a >User</a>
 								<?php
+                session_start();
 									if(!isset($_SESSION['username'])) echo '
 										<ul class="dropdown">
 											<li><a href="login.php">Login</a></li>
@@ -203,50 +144,121 @@ Facebook: 		https://www.facebook.com/fh5co
 		</div>
 	</header>
 
-	<div id="fh5co-services" class="fh5co-bg-section">
+  <div id="fh5co-trainer">
 		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Thanh vien nhom</h2>
+					<p>Xin cam on su giup do tu tat ca moi nguoi.　本当にありがとうございます</p>
+				</div>
+			</div>
 			<div class="row">
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span><img class="img-responsive" src="images/dumbbell.svg" alt=""></span>
-						<h3>Strong lift</h3>
-						<p>We lift strongly </p>
-						<p><a href="#" class="btn btn-primary btn-outline btn-sm">More <i class="icon-arrow-right"></i></a></p>
+				<div class="col-md-4 col-sm-4 animate-box">
+					<div class="trainer">
+						<a href="#"><img class="img-responsive" src="images/trainer-1.jpg" alt="trainer"></a>
+						<div class="title">
+							<h3><a href="#">Đỗ Huy Bách</a></h3>
+							<span>App Android</span>
+						</div>
+						<div class="desc text-center">
+							<ul class="fh5co-social-icons">
+								<li><a href="#"><i class="icon-twitter"></i></a></li>
+								<li><a href="https://www.facebook.com/profile.php?id=100004061041624"><i class="icon-facebook"></i></a></li>
+								<li><a href="#"><i class="icon-linkedin"></i></a></li>
+								<li><a href="#"><i class="icon-github"></i></a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span><img class="img-responsive" src="images/exercise.svg" alt=""></span>
-						<h3>Push pull Leg</h3>
-						<p>We push pull and never skip leg days </p>
-						<p><a href="#" class="btn btn-primary btn-outline btn-sm">More <i class="icon-arrow-right"></i></a></p>
+				<div class="col-md-4 col-sm-4 animate-box">
+					<div class="trainer">
+						<a href="#"><img class="img-responsive" src="images/trainer-1.jpg" alt="trainer"></a>
+						<div class="title">
+							<h3><a href="#">Phạm Chiến</a></h3>
+							<span>Front-end Web</span>
+						</div>
+						<div class="desc text-center">
+							<ul class="fh5co-social-icons">
+								<li><a href="#"><i class="icon-twitter"></i></a></li>
+								<li><a href="https://www.facebook.com/profile.php?id=100004061041624"><i class="icon-facebook"></i></a></li>
+								<li><a href="#"><i class="icon-linkedin"></i></a></li>
+								<li><a href="#"><i class="icon-github"></i></a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span><img class="img-responsive" src="images/weightlifting.svg" alt=""></span>
-						<h3>Bro Lift</h3>
-						<p>Only chest day and behind the neck press, no leg day included</p>
-						<p><a href="#" class="btn btn-primary btn-outline btn-sm">More <i class="icon-arrow-right"></i></a></p>
+				<div class="col-md-4 col-sm-4 animate-box">
+					<div class="trainer">
+						<a href="#"><img class="img-responsive" src="images/trainer-2.jpg" alt="trainer"></a>
+						<div class="title">
+							<h3><a href="#">Trần Vũ Đức</a></h3>
+							<span>App Android</span>
+						</div>
+						<div class="desc text-center">
+							<ul class="fh5co-social-icons">
+								<li><a href="#"><i class="icon-twitter"></i></a></li>
+								<li><a href="#"><i class="icon-facebook"></i></a></li>
+								<li><a href="#"><i class="icon-linkedin"></i></a></li>
+								<li><a href="#"><i class="icon-github"></i></a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-testimonial" class="fh5co-bg-section">
-		<div class="container">
-			<?php
-				if(!isset($_SESSION['username']))
-					echo '
-					<p>Xin chao nguoi la. Ban dang tim kiem ....</p>
-					<br>
-					';
-				else{
-					echo 'Xin chao, <h3><a  target="_blank">'.$_SESSION['name'].'</a><h3><br>';
-					echo 'So <a  target="_blank">calories </a> hang ngay la: '.$_SESSION['carb'];
-				}
-			?>
+			<br><br>
+			<div class="row">
+				<div class="col-md-4 col-sm-4 animate-box">
+					<div class="trainer">
+						<a href="#"><img class="img-responsive" src="images/trainer-3.jpg" alt="trainer"></a>
+						<div class="title">
+							<h3><a href="#">Trần Bá Quang</a></h3>
+							<span>App Android</span>
+						</div>
+						<div class="desc text-center">
+							<ul class="fh5co-social-icons">
+								<li><a href="#"><i class="icon-twitter"></i></a></li>
+								<li><a href="#"><i class="icon-facebook"></i></a></li>
+								<li><a href="#"><i class="icon-linkedin"></i></a></li>
+								<li><a href="#"><i class="icon-github"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 animate-box">
+					<div class="trainer">
+						<a href="#"><img class="img-responsive" src="images/trainer-3.jpg" alt="trainer"></a>
+						<div class="title">
+							<h3><a href="#">Lưu Xuân Sơn</a></h3>
+							<span>Sever-side APP</span>
+						</div>
+						<div class="desc text-center">
+							<ul class="fh5co-social-icons">
+								<li><a href="#"><i class="icon-twitter"></i></a></li>
+								<li><a href="#"><i class="icon-facebook"></i></a></li>
+								<li><a href="#"><i class="icon-linkedin"></i></a></li>
+								<li><a href="#"><i class="icon-github"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 animate-box">
+					<div class="trainer">
+						<a href="#"><img class="img-responsive" src="images/trainer-3.jpg" alt="trainer"></a>
+						<div class="title">
+							<h3><a href="#">Hà Việt Tiến</a></h3>
+							<span>Front,Back-end Web</span>
+						</div>
+						<div class="desc text-center">
+							<ul class="fh5co-social-icons">
+								<li><a href="#"><i class="icon-twitter"></i></a></li>
+								<li><a href="#"><i class="icon-facebook"></i></a></li>
+								<li><a href="#"><i class="icon-linkedin"></i></a></li>
+								<li><a href="#"><i class="icon-github"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<?php

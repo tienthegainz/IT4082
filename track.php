@@ -207,7 +207,7 @@
 													<li><a class="active" href="track.php">Tracking chart</a></li>
 												</ul>
 								</li>
-								<li><a href="contact.html">Liên hệ</a></li>
+								<li><a href="about_us.php">About us</a></li>
 							</ul>
 						</div>
 					</div>
