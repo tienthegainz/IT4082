@@ -118,6 +118,10 @@
 }
 </style>
 
+<!-- them box warning -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div class="fh5co-loader"></div>
@@ -150,7 +154,7 @@
               <li class="active has-dropdown">
                 <a >User</a>
                       <ul class="dropdown">
-                        <li><a href="changeinfo_pass.php">Change info</a></li>
+                        <li><a href="userinfo.php">Change info</a></li>
                         <li><a href="stronglift.php">Training</a></li>
                         <li><a class="active" href="track.php">Tracking chart</a></li>
                       </ul>
@@ -236,18 +240,25 @@
               </form>
               </div>
               ';
-              /*if(!isset($_GET['change'])){
-                exit();
+              if(!isset($_GET['change'])){
+                //exit();
               }
               else{
                 $loginCheck=$_GET['change']; //take what after login
                 if($loginCheck == "error"){
-                  printf("Loi du lieu. Xin thu lai\n");
+                  echo '<div class="alert alert-danger">
+                        <strong>Danger!</strong> Database ERROR </a>.
+                        </div>'
+                        ;
                 }
                 else if($loginCheck == "failed"){
-                  printf("Nhap lieu sai. Xin kiem tra lai\n");
+                  echo '
+                  <div class="alert alert-warning">
+                  <strong>Warning!</strong> Input error, try again</a>.
+                  </div>
+                  ';
                 }
-              }*/
+              }
          ?>
         </div>
       </div>

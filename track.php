@@ -202,7 +202,7 @@
 								<li class="active has-dropdown">
 									<a >User</a>
 												<ul class="dropdown">
-													<li><a href="changeinfo_pass.php">Change info</a></li>
+													<li><a href="userinfo.php">Change info</a></li>
 													<li><a href="stronglift.php">Training</a></li>
 													<li><a class="active" href="track.php">Tracking chart</a></li>
 												</ul>

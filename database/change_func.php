@@ -10,7 +10,7 @@
       $stmt = mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt,$sql)){
         echo "SQL error";
-        header("Location: ../changeinfo.php?change=error");
+        header("Location: ../changeinfo_pass.php?change=error");
       }
       else {
         # code...
@@ -21,5 +21,5 @@
       }
     }
   }
-  else header("Location: ../changeinfo.php?change=failed");
+  else header("Location: ../changeinfo_pass.php?change=failed");
  ?>
