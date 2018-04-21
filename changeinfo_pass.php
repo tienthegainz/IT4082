@@ -157,6 +157,7 @@
                         <li><a href="userinfo.php">Change info</a></li>
                         <li><a href="stronglift.php">Training</a></li>
                         <li><a class="active" href="track.php">Tracking chart</a></li>
+                        <li><a href="logout.php">Logout</a></li>
                       </ul>
               </li>
               <li><a href="about_us.php">About us</a></li>
