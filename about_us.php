@@ -136,7 +136,7 @@ Facebook: 		https://www.facebook.com/fh5co
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>There is no shortcut</h1>
 							<h2>Một dự án nhỏ của <a  target="_blank">Nhóm 3</a></h2>
-							<p><a href="https://www.youtube.com/watch?v=F5tS5m86bOI" class="btn btn-primary popup-vimeo">See our story</a></p>
+							<p><a href="https://www.youtube.com/watch?v=XCWfg_S4Bmc" class="btn btn-primary popup-vimeo">See our story</a></p>
 						</div>
 					</div>
 				</div>
@@ -149,13 +149,13 @@ Facebook: 		https://www.facebook.com/fh5co
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2>Thanh vien nhom</h2>
-					<p>Xin cam on su giup do tu tat ca moi nguoi.　本当にありがとうございます</p>
+					<p>Xin phep duoc gui loi toi cac senpai, cac sama da nhiet tinh giup do.<br>本当にありがとうございます</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4 col-sm-4 animate-box">
 					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-1.jpg" alt="trainer"></a>
+						<a href="#"><img class="img-responsive" src="images/bach.jpg" alt="trainer"></a>
 						<div class="title">
 							<h3><a href="#">Đỗ Huy Bách</a></h3>
 							<span>App Android</span>
@@ -172,7 +172,7 @@ Facebook: 		https://www.facebook.com/fh5co
 				</div>
 				<div class="col-md-4 col-sm-4 animate-box">
 					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-1.jpg" alt="trainer"></a>
+						<a href="#"><img class="img-responsive" src="images/chien.jpg" alt="trainer"></a>
 						<div class="title">
 							<h3><a href="#">Phạm Chiến</a></h3>
 							<span>Front-end Web</span>
@@ -189,7 +189,7 @@ Facebook: 		https://www.facebook.com/fh5co
 				</div>
 				<div class="col-md-4 col-sm-4 animate-box">
 					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-2.jpg" alt="trainer"></a>
+						<a href="#"><img class="img-responsive" src="images/duc.jpg" alt="trainer"></a>
 						<div class="title">
 							<h3><a href="#">Trần Vũ Đức</a></h3>
 							<span>App Android</span>
@@ -209,7 +209,7 @@ Facebook: 		https://www.facebook.com/fh5co
 			<div class="row">
 				<div class="col-md-4 col-sm-4 animate-box">
 					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-3.jpg" alt="trainer"></a>
+						<a href="#"><img class="img-responsive" src="images/quang.jpg" alt="trainer"></a>
 						<div class="title">
 							<h3><a href="#">Trần Bá Quang</a></h3>
 							<span>App Android</span>
@@ -226,7 +226,7 @@ Facebook: 		https://www.facebook.com/fh5co
 				</div>
 				<div class="col-md-4 col-sm-4 animate-box">
 					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-3.jpg" alt="trainer"></a>
+						<a href="#"><img class="img-responsive" src="images/son.jpg" alt="trainer"></a>
 						<div class="title">
 							<h3><a href="#">Lưu Xuân Sơn</a></h3>
 							<span>Sever-side APP</span>
@@ -243,7 +243,7 @@ Facebook: 		https://www.facebook.com/fh5co
 				</div>
 				<div class="col-md-4 col-sm-4 animate-box">
 					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-3.jpg" alt="trainer"></a>
+						<a href="#"><img class="img-responsive" src="images/tien.png" alt="trainer"></a>
 						<div class="title">
 							<h3><a href="#">Hà Việt Tiến</a></h3>
 							<span>Front,Back-end Web</span>

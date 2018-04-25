@@ -286,7 +286,7 @@ session_start();
 		      <option value= 4 >4</option>
 		      <option value= 5 >5</option>
 		      </select>
-		      <br>
+		      <br> <br>
 		      <a  target="_blank">Bench Press</a> 5x5 '.$_SESSION['w2'].':<br>
 		      <select name="bp1">
 		      <option value= 1 >1</option>
@@ -323,7 +323,7 @@ session_start();
 		      <option value= 4 >4</option>
 		      <option value= 5 >5</option>
 		      </select>
-		      <br>
+		      <br> <br>
 		      <a  target="_blank">Deadlift</a> 5x5 '.$_SESSION['w3'].':<br>
 		      <select name="dl1">
 					<option value= 1 >1</option>
@@ -360,7 +360,7 @@ session_start();
 		      <option value= 4 >4</option>
 		      <option value= 5 >5</option>
 		      </select>
-		      <br>
+		      <br><br>
 		      <button type="submit" name="submit">Luu thanh tich</button>
 		      </form>
 		      ';
@@ -403,7 +403,7 @@ session_start();
 				      <option value= 4 >4</option>
 				      <option value= 5 >5</option>
 		          </select>
-		          <br>
+		          <br> <br>
 		          <a  target="_blank">Overhead</a> 5x5 '.$_SESSION['w2'].':<br>
 		          <select name="ohp1">
 							<option value= 1 >1</option>
@@ -440,7 +440,7 @@ session_start();
 				      <option value= 4 >4</option>
 				      <option value= 5 >5</option>
 		          </select>
-		          <br>
+		          <br> <br>
 		          <a  target="_blank">Barbell Row</a> 5x5 '.$_SESSION['w3'].':<br>
 		          <select name="up1">
 							<option value= 1 >1</option>
@@ -477,8 +477,8 @@ session_start();
 				      <option value= 4 >4</option>
 				      <option value= 5 >5</option>
 		          </select>
-		          <br>
-		          <button type="submit" name="submit">Luu thanh tich</button>
+		          <br> <br>
+		          <button type="submit" name="submit" >Luu thanh tich</button>
 		          </form>
 		          ';
 		    }

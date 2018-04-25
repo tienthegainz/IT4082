@@ -195,7 +195,7 @@ Facebook: 		https://www.facebook.com/fh5co
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>There is no shortcut</h1>
 							<h2>Một dự án nhỏ của <a  target="_blank">Nhóm 3</a></h2>
-							<p><a href="https://www.youtube.com/watch?v=F5tS5m86bOI" class="btn btn-primary popup-vimeo">See our story</a></p>
+							<p><a href="https://www.youtube.com/watch?v=XCWfg_S4Bmc" class="btn btn-primary popup-vimeo">See our story</a></p>
 						</div>
 					</div>
 				</div>
