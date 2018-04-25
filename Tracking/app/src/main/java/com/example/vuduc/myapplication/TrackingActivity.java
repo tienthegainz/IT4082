@@ -3,7 +3,9 @@ package com.example.vuduc.myapplication;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,11 +24,25 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TimeZone;
 
 public class TrackingActivity extends AppCompatActivity {
+
+    boolean complete[] = new boolean[3];
 
     public class RowItemsTracking {
         String exercise;
@@ -101,7 +118,7 @@ public class TrackingActivity extends AppCompatActivity {
             final String exercise_name = list.get(position).exercise;
             viewHolder.exerciseView.setText(exercise_name);
             final int weight = list.get(position).weight;
-            viewHolder.weightView.setText("Set: 5  Reps: 5  Mức tạ: " + weight);
+            viewHolder.weightView.setText("Sets: 5  Reps: 5  Weight: " + weight);
 
             viewHolder.checkBox.setTag(position);
 
@@ -110,9 +127,12 @@ public class TrackingActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     boolean newState = !list.get(position).isChecked();
                     list.get(position).checked = newState;
-                    Toast.makeText(getApplicationContext(),
-                            exercise_name + " trạng thái: " + newState,
-                            Toast.LENGTH_LONG).show();
+                    if(newState == true){
+                        Toast.makeText(getApplicationContext(), exercise_name + " completed", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), exercise_name + " not completed", Toast.LENGTH_SHORT).show();
+                    complete[position] = newState;
                 }
             });
 
@@ -130,6 +150,7 @@ public class TrackingActivity extends AppCompatActivity {
     ItemsListAdapter myItemsListAdapter;
     ListView trackList;
     Button saveButton;
+    int lock = 0;
     //
 
     @Override
@@ -137,7 +158,7 @@ public class TrackingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracking);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Theo dõi hàng ngày");
+        toolbar.setTitle("Daily tracking");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         trackList = findViewById(R.id.trackingList);
@@ -152,19 +173,19 @@ public class TrackingActivity extends AppCompatActivity {
         rowItems = new ArrayList<RowItemsTracking>();
         RowItemsTracking item;
         if(day % 2 == 1){
+            item = new RowItemsTracking(exercise_name[0], weight[0], false);
+            rowItems.add(item);
             item = new RowItemsTracking(exercise_name[1], weight[1], false);
             rowItems.add(item);
             item = new RowItemsTracking(exercise_name[2], weight[2], false);
             rowItems.add(item);
-            item = new RowItemsTracking(exercise_name[3], weight[3], false);
-            rowItems.add(item);
         }
         else {
-            item = new RowItemsTracking(exercise_name[1], weight[1], false);
+            item = new RowItemsTracking(exercise_name[0], weight[0], false);
+            rowItems.add(item);
+            item = new RowItemsTracking(exercise_name[3], weight[3], false);
             rowItems.add(item);
             item = new RowItemsTracking(exercise_name[4], weight[4], false);
-            rowItems.add(item);
-            item = new RowItemsTracking(exercise_name[5], weight[5], false);
             rowItems.add(item);
         }
 
@@ -173,14 +194,58 @@ public class TrackingActivity extends AppCompatActivity {
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 // send data to webservice //
+                // replace default with current username
+                String URL = "http://10.0.2.2/server/store_tracking.php";
+                for(int i = 0; i < 3; i ++){
+                    final int j = i;
+                    StringRequest trackingRequest = new StringRequest(Request.Method.POST, URL,
+                            new Response.Listener<String>()
+                            {
+                                @Override
+                                public void onResponse(String response){
+                                    Log.i("VOLLEY", response);
+                                    lock ++;
+                                    if(lock == 3){
+                                        Toast toast = Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT);
+                                        toast.show();
+                                        Intent intent = new Intent(TrackingActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }
+                            },
+                            new Response.ErrorListener()
+                            {
+                                @Override
+                                public void onErrorResponse(VolleyError error){
+                                    Log.i("VOLLEY", error.toString());
+                                }
+                            })
+                    {
+                        @Override
+                        protected Map<String, String> getParams()
+                        {
+                            Map<String, String> params = new HashMap<String, String>();
+                            // replace with current user //
+                            params.put("username", "gainzallday");
+                            params.put("exercise", rowItems.get(j).exercise);
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                            sdf.setTimeZone(TimeZone.getDefault());
+                            String currentDateandTime = sdf.format(new Date());
+                            params.put("date", currentDateandTime);
+                            if(complete[j] == true)
+                                params.put("nosets", "5");
+                            else params.put("nosets", "1");
+                            params.put("weight", String.valueOf(rowItems.get(j).weight));
+                            return params;
+                        }
+                    };
 
+                    MySingleton.getInstance(getApplicationContext()).addToRequestQueue(trackingRequest);
+                }
                 //
-                Toast toast = Toast.makeText(getApplicationContext(), "Đã lưu", Toast.LENGTH_SHORT);
-                toast.show();
-                Intent intent = new Intent(TrackingActivity.this, MainActivity.class);
-                startActivity(intent);
+
             }
         });
         //

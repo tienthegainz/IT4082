@@ -13,7 +13,8 @@
         android:layout_marginTop="24sp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/weight"
@@ -23,6 +24,7 @@
         android:layout_below="@+id/exercise_name"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textColor="#000000"/>
 
 </RelativeLayout>

@@ -5,4 +5,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_activity_squat_graph">SquatGraph</string>
+    <string name="title_activity_ovh_press_graph">OvhPressGraph</string>
+    <string name="title_activity_bb_row_graph">BbRowGraph</string>
+    <string name="title_activity_bench_press_graph">BenchPressGraph</string>
+    <string name="title_activity_deadlift_graph">DeadliftGraph</string>
+    <string name="title_activity_graph">GraphActivity</string>
 </resources>

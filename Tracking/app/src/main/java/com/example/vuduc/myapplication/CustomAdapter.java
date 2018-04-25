@@ -55,7 +55,7 @@ public class CustomAdapter extends BaseAdapter {
             RowItems row_pos = rowItems.get(position);
 
             holder.exercise_name.setText(row_pos.getExercise());
-            holder.weight.setText("Thành tích tốt nhất: " +row_pos.getWeight());
+            holder.weight.setText("Best personal record: " +row_pos.getWeight());
             convertView.setTag(holder);
         }
         else
