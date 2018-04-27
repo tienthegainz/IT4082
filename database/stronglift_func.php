@@ -8,16 +8,6 @@
     $squat3 = $_GET['squat3'];
     $squat4 = $_GET['squat4'];
     $squat5 = $_GET['squat5'];
-  /*$ohp1 = $_GET['ohp1'];
-  $ohp2 = $_GET['ohp2'];
-  $ohp3 = $_GET['ohp3'];
-  $ohp4 = $_GET['ohp4'];
-  $ohp5 = $_GET['ohp5'];
-  $up1 = $_GET['up1'];
-  $up2 = $_GET['up2'];
-  $up3 = $_GET['up3'];
-  $up4 = $_GET['up4'];
-  $up5 = $_GET['up5'];*/
     $bp1 = $_GET['bp1'];
     $bp2 = $_GET['bp2'];
     $bp3 = $_GET['bp3'];

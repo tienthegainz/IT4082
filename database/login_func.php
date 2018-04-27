@@ -37,7 +37,7 @@
           $_SESSION['program_id'] = $program_id;
 
           mysqli_stmt_close($stmt);
-          header("Location: ../login.php?login=success"); //thanh cong
+          header("Location: ../index.php?login=success"); //thanh cong
         }
       }
     }

@@ -123,8 +123,8 @@ session_start();
 
 				<div class="fh5co-tabs">
 					<ul class="fh5co-tab-nav">
-						<li class="active"><a href="#" data-tab="1"><span class="visible-xs">M</span><span class="hidden-xs">Day A</span></a></li>
-						<li><a href="#" data-tab="2"><span class="visible-xs">T</span><span class="hidden-xs">Day B</span></a></li>
+						<li class="active"><a href="#" data-tab="1"><span class="visible-xs">Day A</span><span class="hidden-xs">Day A</span></a></li>
+						<li><a href="#" data-tab="2"><span class="visible-xs">Day B</span><span class="hidden-xs">Day B</span></a></li>
 					</ul>-->
 
 					<!-- Tabs -->
@@ -146,7 +146,7 @@ session_start();
 							</ul>
 						</div>
 
-						<div class="fh5co-tab-content tab-content active" data-tab-content="2">
+						<div class="fh5co-tab-content tab-content inactive" data-tab-content="2">
 							<ul class="class-schedule">
 								<li class="text-center">
 									<span><img src="images/squat.svg" class="img-responsive" alt=""></span>

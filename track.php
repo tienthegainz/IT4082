@@ -245,7 +245,7 @@
 				</div>
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<p><a href="#" class="btn btn-default btn-lg">Nang ta nao</a></p>
+						<p><a href="stronglift.php" class="btn btn-default btn-lg">Nang ta nao</a></p>
 					</div>
 				</div>
 			</div>

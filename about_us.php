@@ -96,7 +96,7 @@ Facebook: 		https://www.facebook.com/fh5co
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li class="active"><a href="index.php">Homepage</a></li>
+							<li ><a href="index.php">Homepage</a></li>
 							<li class="has-dropdown">
 								<a >User</a>
 								<?php
@@ -119,7 +119,7 @@ Facebook: 		https://www.facebook.com/fh5co
 									}
 								?>
 							</li>
-							<li><a href="about_us.php">About us</a></li>
+							<li class="active"><a href="about_us.php">About us</a></li>
 						</ul>
 					</div>
 				</div>
