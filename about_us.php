@@ -288,7 +288,7 @@ Facebook: 		https://www.facebook.com/fh5co
 			<div class="row row-pb-md">
 				<?php
 					if(!isset($_SESSION['username'])) echo '
-					<div class=" col-md-12 text-center fh5co-widget "> <!-- col-md-4 fh5co-widget -->
+					<div class=" col-md-8 col-md-offset-2 text-center "> <!-- col-md-4 fh5co-widget -->
 						<h3 class="pos_right">HEDSPI STRENGTH TRAINING</h3>
 						<p><a class="btn btn-primary" href="login.php">Become A Member</a></p>
 					</div>
