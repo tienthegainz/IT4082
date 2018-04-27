@@ -208,25 +208,25 @@ Facebook: 		https://www.facebook.com/fh5co
 			<div class="row">
 				<div class="col-md-4 text-center animate-box">
 					<div class="services">
-						<span><img class="img-responsive" src="images/dumbbell.svg" alt=""></span>
+						<span><img class="img-responsive" src="images/ohp.svg" alt=""></span>
 						<h3>Strong lift</h3>
-						<p>We lift strongly </p>
+						<p>We lift strongly <br></p>
 						<p><a href="#" class="btn btn-primary btn-outline btn-sm">More <i class="icon-arrow-right"></i></a></p>
 					</div>
 				</div>
 				<div class="col-md-4 text-center animate-box">
 					<div class="services">
-						<span><img class="img-responsive" src="images/exercise.svg" alt=""></span>
+						<span><img class="img-responsive" src="images/squat.svg" alt=""></span>
 						<h3>Push pull Leg</h3>
-						<p>We push pull and never skip leg days </p>
+						<p>We push pull and never skip leg days <br></p>
 						<p><a href="#" class="btn btn-primary btn-outline btn-sm">More <i class="icon-arrow-right"></i></a></p>
 					</div>
 				</div>
 				<div class="col-md-4 text-center animate-box">
 					<div class="services">
-						<span><img class="img-responsive" src="images/weightlifting.svg" alt=""></span>
+						<span><img class="img-responsive" src="images/bench.svg" alt=""></span>
 						<h3>Bro Lift</h3>
-						<p>Only chest day and behind the neck press, no leg day included</p>
+						<p>Only chest day bruh</p>
 						<p><a href="#" class="btn btn-primary btn-outline btn-sm">More <i class="icon-arrow-right"></i></a></p>
 					</div>
 				</div>
@@ -276,7 +276,7 @@ Facebook: 		https://www.facebook.com/fh5co
 			<div class="row row-pb-md">
 				<?php
 					if(!isset($_SESSION['username'])) echo '
-					<div class=" col-md-12 text-center fh5co-widget "> <!-- col-md-4 fh5co-widget -->
+					<div class=" col-md-8 col-md-offset-2 text-center "> <!-- col-md-12 col-sm-12 text-center  fh5co-widget -->
 						<h3 class="pos_right">HEDSPI STRENGTH TRAINING</h3>
 						<p><a class="btn btn-primary" href="login.php">Become A Member</a></p>
 					</div>
