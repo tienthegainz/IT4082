@@ -104,7 +104,7 @@ Facebook: 		https://www.facebook.com/fh5co
 						"column-1": "'.$_SESSION['carb']*0.5.'"
 					},
 					{
-						"category": "Protein",
+						"category": "Fat",
 						"column-1": "'.$_SESSION['carb']*0.2.'"
 					}
 					';
