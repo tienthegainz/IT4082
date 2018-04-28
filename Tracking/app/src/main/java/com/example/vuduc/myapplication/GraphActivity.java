@@ -16,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
@@ -61,24 +62,29 @@ public class GraphActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 JSONObject json;
-                //Log.i("VOLLEY", response);
                 try {
-                    int number_of_actual_records;
+                    int number_of_actual_records = 0;
                     json = new JSONObject(response);
-                    //Log.i("VOLLEY", json.toString());
-                    for(int i = 0; i < 6; i ++){
-                        JSONObject data = json.getJSONObject("day" + (6 - i));
-                        String date_record;
-                        int weight_record;
-                        date_record = data.getString("date");
-                        weight_record = data.getInt("weight");
-                        date[i] = date_record;
-                        weight[i] = weight_record;
+                    JSONObject jsondata = json.getJSONObject("day6");
+                    String date_record = jsondata.getString("date");
+                    int weight_record = jsondata.getInt("weight");
+                    date[0] = date_record;
+                    weight[0] = weight_record;
+
+                    for(int i = 1; i < 6; i ++){
+                        jsondata = json.getJSONObject("day" + (6 - i));
+                        date_record = jsondata.getString("date");
+                        weight_record = jsondata.getInt("weight");
+                        if(!date_record.equals(date[number_of_actual_records]) || weight_record != weight[number_of_actual_records]){
+                            date[number_of_actual_records + 1] = date_record;
+                            weight[number_of_actual_records + 1] = weight_record;
+                            number_of_actual_records ++;
+                        }
                     }
 
-
                     List<Entry> entries = new ArrayList<Entry>();
-                    for(int i = 0; i < 6 ; i ++) {
+
+                    for(int i = 0; i <= number_of_actual_records ; i ++) {
                         Entry e = new Entry(i, weight[i]);
                         entries.add(e);
                     }
@@ -117,6 +123,8 @@ public class GraphActivity extends AppCompatActivity {
                     description.setText("Most recent records");
                     description.setTextSize(10f);
                     chart.setDescription(description);
+
+                    chart.animateX(2000, Easing.EasingOption.Linear);
 
                     chart.invalidate(); // refresh
 
