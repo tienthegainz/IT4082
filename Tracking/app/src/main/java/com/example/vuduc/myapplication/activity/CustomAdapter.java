@@ -1,4 +1,4 @@
-package com.example.vuduc.myapplication;
+package com.example.vuduc.myapplication.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.vuduc.myapplication.R;
+import com.example.vuduc.myapplication.activity.RowItems;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

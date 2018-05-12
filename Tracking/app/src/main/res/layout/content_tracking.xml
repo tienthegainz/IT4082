@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.vuduc.myapplication.TrackingActivity"
+    tools:context="com.example.vuduc.myapplication.activity.TrackingActivity"
     tools:showIn="@layout/activity_tracking">
 
     <ListView
@@ -24,9 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:backgroundTint="#FA7457"
         android:text="Save"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/White"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -39,6 +39,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner"
+        android:textColor="@color/White"
         android:text="Today set of exercises:"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="18sp"

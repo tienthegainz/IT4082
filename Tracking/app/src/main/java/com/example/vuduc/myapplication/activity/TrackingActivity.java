@@ -1,4 +1,4 @@
-package com.example.vuduc.myapplication;
+package com.example.vuduc.myapplication.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -29,6 +29,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.vuduc.myapplication.R;
 
 
 import java.text.SimpleDateFormat;
@@ -168,6 +169,7 @@ public class TrackingActivity extends AppCompatActivity {
         bundle = this.getIntent().getExtras();
         exercise_name = bundle.getStringArray("exercise_name_array");
         weight = bundle.getIntArray("weight_array");
+        final String username = bundle.getString("username");
         Calendar cal = Calendar.getInstance();
         int day = cal.get(Calendar.DAY_OF_MONTH);
         rowItems = new ArrayList<RowItemsTracking>();
@@ -197,7 +199,7 @@ public class TrackingActivity extends AppCompatActivity {
             public void onClick(final View view) {
                 // send data to webservice //
                 // replace default with current username
-                String URL = "http://10.0.2.2/server/store_tracking.php";
+                String URL = "http://hedspi-strength.000webhostapp.com/app/store_tracking.php";
                 for(int i = 0; i < 3; i ++){
                     final int j = i;
                     StringRequest trackingRequest = new StringRequest(Request.Method.POST, URL,
@@ -228,7 +230,7 @@ public class TrackingActivity extends AppCompatActivity {
                         {
                             Map<String, String> params = new HashMap<String, String>();
                             // replace with current user //
-                            params.put("username", "gainzallday");
+                            params.put("username", username);
                             params.put("exercise", rowItems.get(j).exercise);
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                             sdf.setTimeZone(TimeZone.getDefault());

@@ -1,4 +1,4 @@
-package com.example.vuduc.myapplication;
+package com.example.vuduc.myapplication.activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,9 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
@@ -26,6 +24,11 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.vuduc.myapplication.activity.MySingleton;
+import com.example.vuduc.myapplication.R;
+import com.example.vuduc.myapplication.activity.RowItems;
+import com.example.vuduc.myapplication.helper.SQLiteHandler;
+import com.example.vuduc.myapplication.helper.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,6 +39,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SQLiteHandler db;
+    private SessionManager session;
     ArrayList<RowItems> rowItems;
     //replace later with data from db
     String[] exercise_name = new String[5];
@@ -52,16 +57,25 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Tracking");
         setSupportActionBar(toolbar);
-        //get current user for other activities intents here //
 
+        session = new SessionManager(getApplicationContext());
+
+        if (!session.isLoggedIn()) {
+            logoutUser();
+        }
+
+        //get current user for other activities intents here //
+        db = new SQLiteHandler(getApplicationContext());
+        HashMap<String, String> user = db.getUserDetails();
+        final String name = user.get("username");
         //get calories from database // //replace default with current user//
         calories = findViewById(R.id.displayCalories);
         Uri.Builder urlBuilder = new Uri.Builder();
         urlBuilder.scheme("http");
-        urlBuilder.authority("10.0.2.2");
-        urlBuilder.appendEncodedPath("server/calories.php");
+        urlBuilder.authority("hedspi-strength.000webhostapp.com");
+        urlBuilder.appendEncodedPath("app/calories.php");
         // replace with current user //
-        urlBuilder.appendQueryParameter("username", "gainzallday");
+        urlBuilder.appendQueryParameter("username", name);
         String url = urlBuilder.build().toString();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -93,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         //get exercises and weights from database // //replace default later with current user//
 
-        String URL = "http://10.0.2.2/server/get_workout.php";
+        String URL = "http://hedspi-strength.000webhostapp.com/app/get_workout.php";
 
         StringRequest workoutRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -139,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                             else {
                                 bundle.putString("exercise", exercise_name[i]);
                             }
+                            bundle.putString("username", name);
                             intent = new Intent(MainActivity.this, GraphActivity.class);
                             intent.putExtras(bundle);
                             startActivity(intent);
@@ -159,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
                             Bundle bundle = new Bundle();
                             bundle.putStringArray("exercise_name_array", exercise_name);
                             bundle.putIntArray("weight_array", weight);
+                            bundle.putString("username", name);
                             Intent intent = new Intent(MainActivity.this, TrackingActivity.class);
                             intent.putExtras(bundle);
                             startActivity(intent);
@@ -178,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
                 // replace with current user //
-                params.put("username", "gainzallday");
+                params.put("username", name);
                 return params;
             }
 
@@ -193,6 +209,16 @@ public class MainActivity extends AppCompatActivity {
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(workoutRequest);
         //
 
+    }
+    private void logoutUser() {
+        session.setLogin(false);
+
+        db.deleteUsers();
+
+        // Launching the login activity
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -210,7 +236,14 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_logout) {
+            logoutUser();
+            return true;
+        }
+
+        if(id == R.id.action_web) {
+            Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://hedspi-strength.000webhostapp.com"));
+            startActivity(intent);
             return true;
         }
 

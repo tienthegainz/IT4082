@@ -1,4 +1,4 @@
-package com.example.vuduc.myapplication;
+package com.example.vuduc.myapplication.activity;
 
 import android.content.Context;
 import android.graphics.Bitmap;

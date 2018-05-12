@@ -1,4 +1,4 @@
-package com.example.vuduc.myapplication;
+package com.example.vuduc.myapplication.activity;
 
 /**
  * Created by vuduc on 4/14/2018.

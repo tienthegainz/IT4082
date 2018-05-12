@@ -1,4 +1,4 @@
-package com.example.vuduc.myapplication;
+package com.example.vuduc.myapplication.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.vuduc.myapplication.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -49,6 +50,7 @@ public class GraphActivity extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
         final String exercise = bundle.getString("exercise");
+        final String username = bundle.getString("username");
 
         toolbar.setTitle(exercise);
         setSupportActionBar(toolbar);
@@ -56,7 +58,7 @@ public class GraphActivity extends AppCompatActivity {
 
         final LineChart chart = (LineChart) findViewById(R.id.chart);
 
-        String URL = "http://10.0.2.2/server/get_last_6_days_result.php";
+        String URL = "http://hedspi-strength.000webhostapp.com/app/get_last_6_days_result.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -142,7 +144,7 @@ public class GraphActivity extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
                 // replace with current user //
-                params.put("username", "gainzallday");
+                params.put("username", username);
                 params.put("exercise", exercise);
                 return params;
             }
