@@ -67,68 +67,74 @@ public class GraphActivity extends AppCompatActivity {
                 try {
                     int number_of_actual_records = 0;
                     json = new JSONObject(response);
-                    JSONObject jsondata = json.getJSONObject("day6");
-                    String date_record = jsondata.getString("date");
-                    int weight_record = jsondata.getInt("weight");
-                    date[0] = date_record;
-                    weight[0] = weight_record;
+                    Boolean error = json.getBoolean("error");
+                    if(!error) {
+                        JSONObject jsondata = json.getJSONObject("day6");
+                        String date_record = jsondata.getString("date");
+                        int weight_record = jsondata.getInt("weight");
+                        date[0] = date_record;
+                        weight[0] = weight_record;
 
-                    for(int i = 1; i < 6; i ++){
-                        jsondata = json.getJSONObject("day" + (6 - i));
-                        date_record = jsondata.getString("date");
-                        weight_record = jsondata.getInt("weight");
-                        if(!date_record.equals(date[number_of_actual_records]) || weight_record != weight[number_of_actual_records]){
-                            date[number_of_actual_records + 1] = date_record;
-                            weight[number_of_actual_records + 1] = weight_record;
-                            number_of_actual_records ++;
-                        }
-                    }
-
-                    List<Entry> entries = new ArrayList<Entry>();
-
-                    for(int i = 0; i <= number_of_actual_records ; i ++) {
-                        Entry e = new Entry(i, weight[i]);
-                        entries.add(e);
-                    }
-
-                    LineDataSet set = new LineDataSet(entries, "Weight in kilograms");
-                    set.setAxisDependency(YAxis.AxisDependency.LEFT);
-                    set.setColor(getResources().getColor(R.color.colorPrimary));
-                    set.setCircleColor(getResources().getColor(R.color.colorPrimaryDark));
-                    set.setLineWidth(0.8f);
-
-                    List<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
-                    dataSets.add(set);
-
-                    IAxisValueFormatter formatter = new IAxisValueFormatter() {
-
-                        @Override
-                        public String getFormattedValue(float value, AxisBase axis) {
-                            return date[(int) value];
+                        for(int i = 1; i < 6; i ++){
+                            jsondata = json.getJSONObject("day" + (6 - i));
+                            date_record = jsondata.getString("date");
+                            weight_record = jsondata.getInt("weight");
+                            if(!date_record.equals(date[number_of_actual_records]) || weight_record != weight[number_of_actual_records]){
+                                date[number_of_actual_records + 1] = date_record;
+                                weight[number_of_actual_records + 1] = weight_record;
+                                number_of_actual_records ++;
+                            }
                         }
 
-                    };
+                        List<Entry> entries = new ArrayList<Entry>();
 
-                    XAxis xAxis = chart.getXAxis();
-                    xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
-                    xAxis.setTextSize(8f);
-                    xAxis.setDrawGridLines(false);
-                    xAxis.setValueFormatter(formatter);
+                        for(int i = 0; i <= number_of_actual_records ; i ++) {
+                            Entry e = new Entry(i, weight[i]);
+                            entries.add(e);
+                        }
 
-                    chart.getAxisRight().setDrawAxisLine(false);
+                        LineDataSet set = new LineDataSet(entries, "Weight in kilograms");
+                        set.setAxisDependency(YAxis.AxisDependency.LEFT);
+                        set.setColor(getResources().getColor(R.color.colorPrimary));
+                        set.setCircleColor(getResources().getColor(R.color.colorPrimaryDark));
+                        set.setLineWidth(0.8f);
 
-                    LineData data = new LineData(dataSets);
-                    chart.setData(data);
+                        List<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+                        dataSets.add(set);
 
-                    Description description = new Description();
-                    description.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                    description.setText("Most recent records");
-                    description.setTextSize(10f);
-                    chart.setDescription(description);
+                        IAxisValueFormatter formatter = new IAxisValueFormatter() {
 
-                    chart.animateX(2000, Easing.EasingOption.Linear);
+                            @Override
+                            public String getFormattedValue(float value, AxisBase axis) {
+                                return date[(int) value];
+                            }
 
-                    chart.invalidate(); // refresh
+                        };
+
+                        XAxis xAxis = chart.getXAxis();
+                        xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
+                        xAxis.setTextSize(8f);
+                        xAxis.setDrawGridLines(false);
+                        xAxis.setValueFormatter(formatter);
+
+                        chart.getAxisRight().setDrawAxisLine(false);
+
+                        LineData data = new LineData(dataSets);
+                        chart.setData(data);
+
+                        Description description = new Description();
+                        description.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                        description.setText("Most recent records");
+                        description.setTextSize(10f);
+                        chart.setDescription(description);
+
+                        chart.animateX(2000, Easing.EasingOption.Linear);
+
+                        chart.invalidate(); // refresh
+                    }
+                    else {
+
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();

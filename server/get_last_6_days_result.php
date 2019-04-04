@@ -25,6 +25,11 @@ if (isset($_POST['username']) && isset($_POST['exercise'])) {
             $response["day5"]["date"] = $day[4]["date"];
             $response["day6"]["weight"] = $day[5]["weight"];
             $response["day6"]["date"] = $day[5]["date"];
+            $response["nodays"] = 6;
+            for($i = 0; $i < 6; $i++) {
+                if($day[$i]["weight"] == -1)
+                    $response["nodays"] --;
+            }
             echo json_encode($response);
         }
      else {

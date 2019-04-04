@@ -134,6 +134,29 @@ function getUserByUsername($username) {
 
 }
 
+function getExerciseByName($exercise) {
+    include 'connection.php';
+    require_once('work_around_func.php');
+    $query = "SELECT * FROM t_exercises WHERE name = ?";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "s", $exercise);
+
+    if(mysqli_stmt_execute($stmt)){
+        //echo " get executed";
+        $result = get_result($stmt);
+        $exercise = $result[0];
+        mysqli_stmt_close($stmt);
+
+        return $exercise;
+
+
+    }
+
+
+    mysqli_close($conn);
+
+}
+
 function storeTracking($username, $weight, $noreps, $nosets, $date, $exercise){
 
     include 'connection.php';
@@ -209,9 +232,11 @@ function getExerciseResult6Days($username, $exercise)
     require_once('work_around_func.php');
     $user = getUserByUsername($username);
     $user_id = $user["id"];
+    $exerciseObject = getExerciseByName($exercise);
+    $exercise_id = $exerciseObject["id_exercise"];
     $query = "SELECT weight, date FROM t_tracking WHERE user_id = ? AND exercise = ? ORDER BY id DESC LIMIT 6";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "is", $user_id, $exercise);
+    mysqli_stmt_bind_param($stmt, "is", $user_id, $exercise_id);
     if(mysqli_stmt_execute($stmt)){
 
         //echo "executed";

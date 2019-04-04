@@ -169,8 +169,6 @@ public class MainActivity extends AppCompatActivity {
                     {
                         @Override
                         public void onClick(View view) {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Today exercises", Toast.LENGTH_SHORT);
-                            toast.show();
                             Bundle bundle = new Bundle();
                             bundle.putStringArray("exercise_name_array", exercise_name);
                             bundle.putIntArray("weight_array", weight);

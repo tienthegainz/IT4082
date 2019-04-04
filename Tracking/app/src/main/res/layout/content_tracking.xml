@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.vuduc.myapplication.activity.TrackingActivity"
     tools:showIn="@layout/activity_tracking">
 
     <ListView
+        android:background="@drawable/corner"
         android:id="@+id/trackingList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -34,18 +36,18 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_corner"
-        android:textColor="@color/White"
+        android:gravity="center"
         android:text="Today set of exercises:"
         android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@color/White"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

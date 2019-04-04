@@ -22,7 +22,6 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -128,11 +127,6 @@ public class TrackingActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     boolean newState = !list.get(position).isChecked();
                     list.get(position).checked = newState;
-                    if(newState == true){
-                        Toast.makeText(getApplicationContext(), exercise_name + " completed", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                        Toast.makeText(getApplicationContext(), exercise_name + " not completed", Toast.LENGTH_SHORT).show();
                     complete[position] = newState;
                 }
             });
@@ -210,8 +204,6 @@ public class TrackingActivity extends AppCompatActivity {
                                     Log.i("VOLLEY", response);
                                     lock ++;
                                     if(lock == 3){
-                                        Toast toast = Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT);
-                                        toast.show();
                                         Intent intent = new Intent(TrackingActivity.this, MainActivity.class);
                                         startActivity(intent);
                                     }
