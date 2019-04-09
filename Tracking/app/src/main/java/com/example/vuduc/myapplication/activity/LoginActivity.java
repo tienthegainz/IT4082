@@ -32,7 +32,6 @@ import com.example.vuduc.myapplication.app.AppConfig;
 import com.example.vuduc.myapplication.app.AppController;
 import com.example.vuduc.myapplication.helper.SQLiteHandler;
 import com.example.vuduc.myapplication.helper.SessionManager;
-import com.example.vuduc.myapplication.activity.MainActivity;
 
 public class LoginActivity extends Activity {
     private static final String TAG = com.example.vuduc.myapplication.activity.RegisterActivity.class.getSimpleName();

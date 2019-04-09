@@ -13,20 +13,14 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.vuduc.myapplication.activity.MySingleton;
 import com.example.vuduc.myapplication.R;
-import com.example.vuduc.myapplication.activity.RowItems;
 import com.example.vuduc.myapplication.helper.SQLiteHandler;
 import com.example.vuduc.myapplication.helper.SessionManager;
 

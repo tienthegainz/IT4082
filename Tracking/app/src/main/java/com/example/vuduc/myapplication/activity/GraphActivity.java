@@ -1,15 +1,13 @@
 package com.example.vuduc.myapplication.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -48,7 +46,7 @@ public class GraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_graph);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        Bundle bundle = this.getIntent().getExtras();
+        final Bundle bundle = this.getIntent().getExtras();
         final String exercise = bundle.getString("exercise");
         final String username = bundle.getString("username");
 
@@ -133,9 +131,13 @@ public class GraphActivity extends AppCompatActivity {
                         chart.invalidate(); // refresh
                     }
                     else {
-
+                        String error_msg = json.getString("error_msg");
+                        Bundle dialog_bundle = new Bundle();
+                        dialog_bundle.putString("error_msg", error_msg);
+                        DialogFragment dialog = new MyDialogFragment();
+                        dialog.setArguments(dialog_bundle);
+                        dialog.show(getSupportFragmentManager(), "MyDialogFragmentTag");
                     }
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
