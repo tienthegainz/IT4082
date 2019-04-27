@@ -15,10 +15,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.vuduc.myapplication.R;
-import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
-import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -89,13 +88,16 @@ public class GraphActivity extends AppCompatActivity {
                         for(int i = 0; i <= number_of_actual_records ; i ++) {
                             Entry e = new Entry(i, weight[i]);
                             entries.add(e);
+                            date[i] = date[i].substring(5);
                         }
 
                         LineDataSet set = new LineDataSet(entries, "Weight in kilograms");
                         set.setAxisDependency(YAxis.AxisDependency.LEFT);
                         set.setColor(getResources().getColor(R.color.colorPrimary));
                         set.setCircleColor(getResources().getColor(R.color.colorPrimaryDark));
-                        set.setLineWidth(0.8f);
+                        set.setLineWidth(1.2f);
+                        set.setDrawValues(false);
+                        set.setCircleRadius(5);
 
                         List<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
                         dataSets.add(set);
@@ -116,17 +118,14 @@ public class GraphActivity extends AppCompatActivity {
                         xAxis.setValueFormatter(formatter);
 
                         chart.getAxisRight().setDrawAxisLine(false);
+                        chart.getDescription().setEnabled(false);
+                        chart.setExtraOffsets(10,15,10,0);
+
+                        Legend legend = chart.getLegend();
+                        legend.setYOffset(10);
 
                         LineData data = new LineData(dataSets);
                         chart.setData(data);
-
-                        Description description = new Description();
-                        description.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                        description.setText("Most recent records");
-                        description.setTextSize(10f);
-                        chart.setDescription(description);
-
-                        chart.animateX(2000, Easing.EasingOption.Linear);
 
                         chart.invalidate(); // refresh
                     }

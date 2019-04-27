@@ -164,10 +164,12 @@ function storeTracking($username, $weight, $noreps, $nosets, $date, $exercise){
     $user = getUserByUsername($username);
     $user_id = $user["id"];
     $trainer_id = $user["trainer_id"];
+    $exerciseObject = getExerciseByName($exercise);
+    $exercise_id = $exerciseObject["id_exercise"];
     //lay nosets de so sanh
     $query = "SELECT nosets FROM t_tracking WHERE user_id = ? AND exercise = ? ORDER BY id DESC LIMIT 1";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "is", $user_id, $exercise);
+    mysqli_stmt_bind_param($stmt, "ii", $user_id, $exercise_id);
     if(mysqli_stmt_execute($stmt)){
 
         mysqli_stmt_store_result($stmt);
@@ -197,7 +199,7 @@ function storeTracking($username, $weight, $noreps, $nosets, $date, $exercise){
 
     $stmt = mysqli_prepare($conn,$query);
     //prepared
-    mysqli_stmt_bind_param($stmt, "siiisii",$date, $nosets, $noreps, $weight, $exercise, $user_id, $trainer_id);
+    mysqli_stmt_bind_param($stmt, "siiiiii",$date, $nosets, $noreps, $weight, $exercise_id, $user_id, $trainer_id);
 
     if(mysqli_stmt_execute($stmt))
     {
@@ -210,7 +212,7 @@ function storeTracking($username, $weight, $noreps, $nosets, $date, $exercise){
         //echo "co kq\n";
         $query = "SELECT * FROM t_tracking WHERE user_id = ? AND exercise = ? AND date = ? ORDER BY id DESC LIMIT 1";
         $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, "iss", $user_id, $exercise, $date);
+        mysqli_stmt_bind_param($stmt, "iis", $user_id, $exercise_id, $date);
 
         if(mysqli_stmt_execute($stmt)){
         $result = get_result($stmt);

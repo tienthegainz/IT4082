@@ -9,7 +9,7 @@ if (isset($_POST['username']) && isset($_POST['weight']) /*&& isset($_POST['nore
 
     $t_username = $_POST['username'];
     $t_weight = $_POST['weight'];
-    $t_noreps = /*$_POST['noreps']*/ 0;
+    $t_noreps = /*$_POST['noreps']*/ 5;
     $t_nosets = $_POST['nosets'];
     $t_date = $_POST['date'];
     $t_exercise = $_POST['exercise'];
