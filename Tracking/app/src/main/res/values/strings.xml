@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">Hedspi Strength Training</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tracking">TrackingActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_squat_graph">SquatGraph</string>
+    <string name="title_activity_ovh_press_graph">OvhPressGraph</string>
+    <string name="title_activity_bb_row_graph">BbRowGraph</string>
+    <string name="title_activity_bench_press_graph">BenchPressGraph</string>
+    <string name="title_activity_deadlift_graph">DeadliftGraph</string>
+    <string name="title_activity_graph">GraphActivity</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Fullname</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_weight">Weight</string>
+    <string name="hint_height">Height</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="btn_link_to_login">Already registred! Login Me.</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="name">Fullname</string>
+
+</resources>
